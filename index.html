@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elektrik Harjumaal — Ampri OÜ | Elektritööd ja teostusjoonised</title>
+  <meta name="description" content="Elektritööd Harjumaal: hoonete elektripaigaldiste ehitamine, remont ja teostusjoonised. 15 aastat kogemust. Eraisikutele ja ehitusobjektidele. Vastame 24 tunni jooksul.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M18 92 L50 12 L58.4 26.4' stroke='%2326211B' stroke-width='9' fill='none' stroke-linecap='butt' stroke-linejoin='miter'/%3E%3Cpath d='M29.2 64 H67.5' stroke='%2326211B' stroke-width='9' fill='none' stroke-linecap='butt'/%3E%3Cpath d='M58.4 26.4 L71 48 L58 48 L84 92' stroke='%23B96A24' stroke-width='9' fill='none' stroke-linecap='butt' stroke-linejoin='miter'/%3E%3C/svg%3E">
+
+  <!-- Dim-olek enne esimest värvimist: välditakse välgatust -->
+  <script>
+    (function () {
+      try {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduce && !sessionStorage.getItem('ampri-lit')) {
+          document.documentElement.classList.add('dim');
+        } else {
+          document.documentElement.classList.add('lit', 'no-intro');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('lit', 'no-intro');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Electrician",
+    "name": "Ampri OÜ",
+    "description": "Elektritööd Harjumaal: elektripaigaldiste ehitamine, remont ja teostusjoonised.",
+    "telephone": "+372 5555 5555",
+    "email": "info@ampri.ee",
+    "areaServed": { "@type": "State", "name": "Harjumaa" },
+    "address": { "@type": "PostalAddress", "addressRegion": "Harjumaa", "addressCountry": "EE" },
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "priceRange": "€€"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ================= PÄIS ================= -->
+  <header class="site-header">
+    <a href="#algus" class="brand" aria-label="Ampri — avaleht">
+      <svg class="monogram monogram--header" viewBox="0 0 100 100" aria-hidden="true">
+        <path class="mono-a" d="M18 92 L50 12 L58.4 26.4" pathLength="1"/>
+        <path class="mono-a" d="M29.2 64 H67.5" pathLength="1"/>
+        <path class="mono-bolt" d="M58.4 26.4 L71 48 L58 48 L84 92" pathLength="1"/>
+      </svg>
+      <span class="wordmark">AMPRI</span>
+    </a>
+    <nav class="header-actions">
+      <a href="tel:+37255555555" class="header-phone wire">+372 5555 5555</a>
+      <a href="#paring" class="btn btn-outline btn-small">Küsi pakkumist</a>
+    </nav>
+  </header>
+
+  <!-- ================= AVAMISE KATE ================= -->
+  <div class="blackout" aria-hidden="true"></div>
+
+  <main id="algus">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 class="hero-stage stage-1">Elektritööd, mis saavad tehtud õigesti. <span class="copper-text">Esimesel korral.</span></h1>
+          <p class="hero-sub hero-stage stage-2">15 aastat kogemust Harjumaal. Eraisikutele ja ehitusobjektidele.</p>
+          <div class="hero-ctas hero-stage stage-3">
+            <a href="tel:+37255555555" class="btn btn-primary">Helista: +372 5555 5555</a>
+            <a href="#paring" class="btn btn-outline">Küsi pakkumist</a>
+          </div>
+        </div>
+        <div class="hero-switch-wrap">
+          <button class="light-switch" id="lightSwitch" type="button" aria-label="Lüliti — pane tuled põlema või kustuta">
+            <span class="switch-plate">
+              <span class="switch-screw switch-screw--top"></span>
+              <span class="switch-track">
+                <span class="switch-lever"></span>
+              </span>
+              <span class="switch-screw switch-screw--bottom"></span>
+            </span>
+          </button>
+          <p class="switch-caption hero-stage stage-3" aria-hidden="true">klõps — ja valmis</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KAKS RADA ================= -->
+    <section class="tracks">
+      <div class="container tracks-grid">
+        <a href="#teenused" class="track-card reveal">
+          <h2>Vajad elektrikut koju?</h2>
+          <p>Rike, remont või uus paigaldis. Tuleme kohale, teeme korda ja koristame enda järelt.</p>
+          <span class="track-link wire">Vaata teenuseid <span class="arrow">→</span></span>
+        </a>
+        <a href="#objektijuhile" class="track-card track-card--dark reveal">
+          <h2>Otsid partnerit objektile?</h2>
+          <p>MTR-registreering, teostusjoonised, mahuvõime, referentsid. Faktid 30 sekundiga.</p>
+          <span class="track-link wire">Vaata fakte <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= TEENUSED ================= -->
+    <section class="services" id="teenused">
+      <div class="container">
+        <h2 class="section-title reveal">Teenused</h2>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="10" y="6" width="28" height="36" rx="2"/>
+              <line x1="10" y1="16" x2="38" y2="16"/>
+              <line x1="16" y1="24" x2="24" y2="24"/>
+              <line x1="16" y1="31" x2="28" y2="31"/>
+              <circle cx="32" cy="10.5" r="1.6" class="fill-dot"/>
+            </svg>
+            <h3>Hoonete elektripaigaldiste ehitamine</h3>
+            <p>Uus maja või suur ümberehitus? Ehitame elektripaigaldise algusest lõpuni — nii, et kilbis on kord ja kõik töötab aastakümneid.</p>
+          </article>
+          <article class="service-card reveal">
+            <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <line x1="19" y1="4" x2="19" y2="13"/>
+              <line x1="29" y1="4" x2="29" y2="13"/>
+              <path d="M14 13 h20 v7 a10 10 0 0 1 -20 0 z"/>
+              <line x1="24" y1="30" x2="24" y2="38"/>
+              <path d="M24 38 q0 5 6 5"/>
+            </svg>
+            <h3>Elektripaigaldiste remont</h3>
+            <p>Kaitse lööb välja, pistik logiseb, valgus väreleb? Leiame vea üles ja parandame põhjuse, mitte ainult tagajärje.</p>
+          </article>
+          <article class="service-card reveal">
+            <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="8" y="8" width="32" height="32" rx="2"/>
+              <path d="M8 30 L20 20 L28 26 L40 14"/>
+              <circle cx="20" cy="20" r="1.6" class="fill-dot"/>
+              <circle cx="28" cy="26" r="1.6" class="fill-dot"/>
+            </svg>
+            <h3>Teostusjoonised</h3>
+            <p>Joonised, mis vastavad sellele, mis seinas tegelikult on. Objektijuhid teavad, kui haruldane see on.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TEHTUD TÖÖD ================= -->
+    <section class="works" id="tood">
+      <div class="container">
+        <h2 class="section-title reveal">Tehtud tööd</h2>
+        <p class="section-lead reveal">Iga objekt siin on tehtud oma kätega. Fotod on teel — objektid on päris.</p>
+        <div class="works-grid">
+          <figure class="work-card reveal" style="--i:0">
+            <div class="work-photo" aria-hidden="true"><svg viewBox="0 0 100 100" class="ph-bolt"><path d="M50 8 L72 48 L59 48 L84 92" pathLength="1"/></svg><span class="ph-label">Foto tulekul</span></div>
+            <figcaption><strong>Eramu, Viimsi</strong><span>Täielik elektripaigaldis, kilp ja mõõtmised</span></figcaption>
+          </figure>
+          <figure class="work-card reveal" style="--i:1">
+            <div class="work-photo" aria-hidden="true"><svg viewBox="0 0 100 100" class="ph-bolt"><path d="M50 8 L72 48 L59 48 L84 92" pathLength="1"/></svg><span class="ph-label">Foto tulekul</span></div>
+            <figcaption><strong>Korterelamu, Tallinn</strong><span>Peakilbi uuendus ja teostusjoonised</span></figcaption>
+          </figure>
+          <figure class="work-card reveal" style="--i:2">
+            <div class="work-photo" aria-hidden="true"><svg viewBox="0 0 100 100" class="ph-bolt"><path d="M50 8 L72 48 L59 48 L84 92" pathLength="1"/></svg><span class="ph-label">Foto tulekul</span></div>
+            <figcaption><strong>Ridaelamu, Rae vald</strong><span>Uue paigaldise ehitus kolmes boksis</span></figcaption>
+          </figure>
+          <figure class="work-card reveal" style="--i:3">
+            <div class="work-photo" aria-hidden="true"><svg viewBox="0 0 100 100" class="ph-bolt"><path d="M50 8 L72 48 L59 48 L84 92" pathLength="1"/></svg><span class="ph-label">Foto tulekul</span></div>
+            <figcaption><strong>Büroopind, Tallinn</strong><span>Valgustuse ja töökohtade kaabeldus</span></figcaption>
+          </figure>
+          <figure class="work-card reveal" style="--i:4">
+            <div class="work-photo" aria-hidden="true"><svg viewBox="0 0 100 100" class="ph-bolt"><path d="M50 8 L72 48 L59 48 L84 92" pathLength="1"/></svg><span class="ph-label">Foto tulekul</span></div>
+            <figcaption><strong>Suvila, Harku vald</strong><span>Rikkeotsing ja paigaldise remont</span></figcaption>
+          </figure>
+          <figure class="work-card reveal" style="--i:5">
+            <div class="work-photo" aria-hidden="true"><svg viewBox="0 0 100 100" class="ph-bolt"><path d="M50 8 L72 48 L59 48 L84 92" pathLength="1"/></svg><span class="ph-label">Foto tulekul</span></div>
+            <figcaption><strong>Tootmishoone, Jüri</strong><span>Jõukilbid ja seadmete toide</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MIKS AMPRI ================= -->
+    <section class="about" id="miks">
+      <div class="container about-grid">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="ph-bolt"><path d="M50 8 L72 48 L59 48 L84 92" pathLength="1"/></svg>
+            <span class="ph-label">Portree tulekul</span>
+          </div>
+        </div>
+        <div class="about-copy">
+          <h2 class="section-title reveal">Miks Ampri?</h2>
+          <p class="reveal">Ampri taga on üks mees. Tallinna Polütehnikumis õppinud elektrik, kes on 15 aastat teinud Harjumaal elektritöid oma kätega — mitte alltöövõtjate, vaid enda omadega.</p>
+          <p class="reveal">Iga objekt käib läbi tema käest. Iga juhe, iga klemm, iga kilp. Sellepärast näevad tema kilbid välja nagu õpikus ja töötavad nagu kell.</p>
+          <p class="about-quote reveal">„Piisavalt hea“ siin ei loe. Kas on õigesti või teeme uuesti.</p>
+          <div class="stats reveal">
+            <div class="stat">
+              <span class="stat-number"><span data-count="15">0</span></span>
+              <span class="stat-label">aastat kogemust</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number"><span data-count="200">0</span>+</span>
+              <span class="stat-label">tehtud objekti</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number"><span data-count="24">0</span>h</span>
+              <span class="stat-label">vastamisaeg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ÜLEMINEK TUMEDASSE ================= -->
+    <div class="to-dark" aria-hidden="true"></div>
+
+    <!-- ================= TUME B2B PLOKK ================= -->
+    <section class="b2b" id="objektijuhile">
+      <div class="container">
+        <h2 class="section-title section-title--dark reveal">Objektijuhile</h2>
+        <p class="section-lead section-lead--dark reveal">Faktid, mitte jutt. Kui vajad rohkem, helista — vastame nagu ehitusinimesed, mitte nagu klienditugi.</p>
+
+        <div class="facts-grid">
+          <div class="fact reveal">
+            <h3>MTR registreering</h3>
+            <p class="fact-big">TEL000000</p>
+            <p class="fact-note">Number täpsustamisel — kontrolli MTR registrist</p>
+          </div>
+          <div class="fact reveal">
+            <h3>Teostusjoonised</h3>
+            <p>Teeme ise, digitaalselt. Joonised vastavad tegelikule paigaldisele — mitte projektile, mis vahepeal muutus.</p>
+          </div>
+          <div class="fact reveal">
+            <h3>Objektitüübid</h3>
+            <p>Eramud, rida- ja korterelamud, büroopinnad, väiketootmine. Suuremad mahud kokkuleppel.</p>
+          </div>
+          <div class="fact reveal">
+            <h3>Mahuvõime</h3>
+            <p>Üks objekt korraga, täie tähelepanuga. Suuremateks mahtudeks kaasame kontrollitud partnerid.</p>
+          </div>
+        </div>
+
+        <div class="refs reveal">
+          <h3 class="refs-title">Referentsid</h3>
+          <div class="refs-grid">
+            <blockquote class="ref">
+              <p>„Kilp oli nii korras, et audiitor küsis, kes tegi.“</p>
+              <cite>Objektijuht, korterelamu Tallinnas — nimi lisamisel</cite>
+            </blockquote>
+            <blockquote class="ref">
+              <p>„Teostusjoonised vastasid esimest korda mu karjääris sellele, mis seinas oli.“</p>
+              <cite>Peatöövõtja, Harjumaa — nimi lisamisel</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="b2b-cta reveal">
+          <a href="#paring" class="btn btn-primary">Võta ühendust</a>
+          <div class="b2b-direct">
+            <a href="tel:+37255555555" class="wire wire--dark">+372 5555 5555</a>
+            <a href="mailto:info@ampri.ee" class="wire wire--dark">info@ampri.ee</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ÜLEMINEK HELEDASSE ================= -->
+    <div class="to-light" aria-hidden="true"></div>
+
+    <!-- ================= HINNAPÄRINGU VORM ================= -->
+    <section class="inquiry" id="paring">
+      <div class="container inquiry-inner">
+        <h2 class="section-title reveal">Küsi pakkumist</h2>
+        <p class="section-lead reveal">Kirjelda muret oma sõnadega. Ülejäänu on meie töö.</p>
+        <form class="inquiry-form reveal" id="inquiryForm" novalidate>
+          <div class="field">
+            <label for="f-nimi">Nimi</label>
+            <input type="text" id="f-nimi" name="nimi" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-kontakt">Telefon või e-mail</label>
+            <input type="text" id="f-kontakt" name="kontakt" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="f-mure">Mis mure on?</label>
+            <textarea id="f-mure" name="mure" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Saada päring</button>
+          <p class="form-promise">Vastame 24 tunni jooksul.</p>
+          <p class="form-success" id="formSuccess" hidden>Aitäh! Päring on kohal. Vastame 24 tunni jooksul.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= JALUS ================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <svg class="monogram monogram--footer" id="footerMonogram" viewBox="0 0 100 100" aria-hidden="true">
+        <path class="mono-a" d="M18 92 L50 12 L58.4 26.4" pathLength="1"/>
+        <path class="mono-a" d="M29.2 64 H67.5" pathLength="1"/>
+        <path class="mono-bolt" d="M58.4 26.4 L71 48 L58 48 L84 92" pathLength="1"/>
+      </svg>
+      <div class="footer-info">
+        <p class="footer-name">Ampri OÜ</p>
+        <p>Registrikood: 10000000 <span class="footer-note">(täpsustamisel)</span></p>
+        <p>MTR: TEL000000 <span class="footer-note">(täpsustamisel)</span></p>
+        <p>Piirkond: Harjumaa</p>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+37255555555" class="wire wire--dark">+372 5555 5555</a>
+        <a href="mailto:info@ampri.ee" class="wire wire--dark">info@ampri.ee</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Ampri OÜ. Elektritööd, mis saavad tehtud õigesti.</p>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

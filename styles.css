@@ -1,0 +1,899 @@
+/* ============================================================
+   AMPRI OÜ — elektritööd Harjumaal
+   Paber + tint + vask. Vask on aktsent, mitte täidis.
+   ============================================================ */
+
+:root {
+  --paper: #F6F1E9;
+  --paper-deep: #EFE7DA;
+  --ink: #26211B;
+  --copper: #B96A24;
+  --copper-hover: #C9772E;
+  --muted: #7A7164;
+  --line: #CFC4B4;
+  --dark-bg: #26211B;
+  --dark-text: #F0E9DE;
+  --dark-muted: #A89C8C;
+  --dark-line: #4A4237;
+
+  --font-slab: "Zilla Slab", "Bitter", Georgia, serif;
+  --font-sans: "Inter", "Source Sans 3", -apple-system, sans-serif;
+
+  --speed: 260ms;
+  --ease: cubic-bezier(0.25, 0.6, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(100% - 2.5rem, 68rem);
+  margin-inline: auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-slab);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+section { scroll-margin-top: 5rem; }
+
+::selection { background: var(--copper); color: var(--paper); }
+
+/* ============================================================
+   Monogramm — A + välk
+   ============================================================ */
+
+.monogram { display: block; }
+.monogram path {
+  fill: none;
+  stroke-width: 9;
+  stroke-linecap: butt; /* jalgade otsad ja värvivahetus liituvad õmbluseta */
+  stroke-linejoin: miter;
+}
+.mono-a { stroke: var(--ink); }
+.mono-bolt { stroke: var(--copper); }
+
+/* Välk joonistab end ise: stroke-dash + pathLength=1 */
+.monogram path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+html.lit:not(.no-intro) .monogram--header path,
+.monogram--footer.draw path {
+  animation: draw-stroke 0.7s var(--ease) both;
+}
+html.lit:not(.no-intro) .monogram--header .mono-bolt,
+.monogram--footer.draw .mono-bolt {
+  animation-duration: 0.55s;
+  animation-delay: 0.45s;
+}
+.monogram--footer:not(.draw) path { stroke-dashoffset: 1; }
+
+@keyframes draw-stroke {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.monogram--header { width: 2rem; height: 2rem; flex: none; }
+.monogram--footer { width: 5.5rem; height: 5.5rem; }
+.monogram--footer .mono-a { stroke: var(--dark-muted); }
+
+/* ============================================================
+   Päis
+   ============================================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.wordmark {
+  font-family: var(--font-slab);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.header-phone {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 40rem) {
+  .header-phone { display: none; }
+}
+
+/* ============================================================
+   Vask-alajoon: "juhe läheb pinge alla"
+   ============================================================ */
+
+.wire {
+  position: relative;
+  text-decoration: none;
+}
+.wire::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: var(--copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--speed) var(--ease);
+}
+.wire:hover::after,
+.wire:focus-visible::after { transform: scaleX(1); }
+
+.wire--dark { color: var(--dark-text); }
+
+/* ============================================================
+   Nupud
+   ============================================================ */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--speed) var(--ease),
+              border-color var(--speed) var(--ease),
+              color var(--speed) var(--ease),
+              transform 140ms var(--ease);
+  will-change: transform;
+}
+.btn:active { transform: scale(0.98); }
+
+.btn-primary {
+  background: var(--copper);
+  color: #FDF9F2;
+}
+.btn-primary:hover,
+.btn-primary:focus-visible { background: var(--copper-hover); }
+
+.btn-outline {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: var(--copper);
+  color: var(--copper);
+}
+
+.btn-small { padding: 0.5rem 1rem; font-size: 0.9rem; }
+.btn-full { width: 100%; }
+
+/* ============================================================
+   Avamise moment: hämarus → tuled põlema
+   ============================================================ */
+
+.blackout {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #16120C;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.75s ease;
+}
+html.dim .blackout { opacity: 1; }
+html.lit .blackout { opacity: 0; }
+html.no-intro .blackout { display: none; }
+
+/* Hero sisu ilmub astmeliselt pärast tulede süttimist */
+.hero-stage {
+  opacity: 1;
+  transform: none;
+}
+html.dim .hero-stage {
+  opacity: 0;
+  transform: translateY(14px);
+}
+html.lit:not(.no-intro) .hero-stage {
+  animation: stage-in 0.6s var(--ease) both;
+}
+html.lit:not(.no-intro) .stage-1 { animation-delay: 0.25s; }
+html.lit:not(.no-intro) .stage-2 { animation-delay: 0.42s; }
+html.lit:not(.no-intro) .stage-3 { animation-delay: 0.58s; }
+
+@keyframes stage-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Vask-CTA "süttib" korraks */
+html.lit:not(.no-intro) .hero .btn-primary {
+  animation: stage-in 0.6s var(--ease) both, ignite 1.1s ease 0.7s;
+}
+@keyframes ignite {
+  0%   { box-shadow: 0 0 0 0 rgba(201, 119, 46, 0); }
+  35%  { box-shadow: 0 0 32px 4px rgba(201, 119, 46, 0.55); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 119, 46, 0); }
+}
+
+/* ============================================================
+   Lüliti
+   ============================================================ */
+
+.hero-switch-wrap {
+  position: relative;
+  z-index: 60; /* lüliti paistab ka hämaruses */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.light-switch {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switch-plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 4.5rem;
+  height: 6.75rem;
+  padding: 0.55rem 0;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(38, 33, 27, 0.08);
+  transition: background-color 0.6s ease, border-color 0.6s ease;
+}
+html.dim .switch-plate {
+  background: #221C13;
+  border-color: #3A3226;
+}
+
+.switch-screw {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--line);
+  position: relative;
+  transition: background-color 0.6s ease;
+}
+.switch-screw::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 100%; height: 1px;
+  background: rgba(38, 33, 27, 0.35);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+html.dim .switch-screw { background: #3A3226; }
+
+.switch-track {
+  position: relative;
+  width: 1.6rem;
+  height: 3.6rem;
+  border-radius: 5px;
+  background: rgba(38, 33, 27, 0.07);
+  border: 1px solid var(--line);
+  transition: background-color 0.6s ease, border-color 0.6s ease;
+}
+html.dim .switch-track {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: #3A3226;
+}
+
+.switch-lever {
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 1.15rem;
+  height: 1.5rem;
+  border-radius: 4px;
+  background: var(--copper);
+  transform: translateX(-50%);
+  transition: transform 150ms cubic-bezier(0.5, 1.6, 0.4, 1),
+              box-shadow 0.5s ease;
+}
+html.dim .switch-lever {
+  box-shadow: 0 0 14px 2px rgba(185, 106, 36, 0.55);
+}
+html.lit .switch-lever {
+  transform: translateX(-50%) translateY(-1.8rem);
+}
+
+.switch-caption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+
+.hero {
+  padding: 4.5rem 0 4rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6.5vw, 3.6rem);
+  max-width: 17ch;
+}
+
+.copper-text { color: var(--copper); }
+
+.hero-sub {
+  margin-top: 1.1rem;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: var(--muted);
+  max-width: 38ch;
+}
+
+.hero-ctas {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+@media (min-width: 48rem) {
+  .hero { padding: 6.5rem 0 5.5rem; }
+  .hero-grid { grid-template-columns: 1fr auto; gap: 4rem; }
+  .hero-switch-wrap { padding-right: 2rem; }
+}
+@media (max-width: 47.99rem) {
+  .hero-switch-wrap { order: -1; }
+}
+
+/* ============================================================
+   Scroll-reveal
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   Sektsioonide pealkirjad
+   ============================================================ */
+
+.section-title {
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3.5rem;
+  height: 3px;
+  background: var(--copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease) 0.25s;
+}
+.section-title.in::after { transform: scaleX(1); }
+
+.section-lead {
+  color: var(--muted);
+  max-width: 52ch;
+  margin-bottom: 2.2rem;
+}
+.section-title--dark { color: var(--dark-text); }
+.section-lead--dark { color: var(--dark-muted); }
+
+/* ============================================================
+   Kaks rada
+   ============================================================ */
+
+.tracks { padding: 1rem 0 3.5rem; }
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 48rem) {
+  .tracks-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.track-card {
+  display: block;
+  padding: 1.8rem 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  text-decoration: none;
+  color: var(--ink);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease),
+              border-color var(--speed) var(--ease),
+              box-shadow var(--speed) var(--ease);
+}
+.track-card:hover {
+  border-color: var(--copper);
+  box-shadow: 0 6px 24px rgba(38, 33, 27, 0.08);
+}
+.track-card h2 {
+  font-size: 1.45rem;
+  margin-bottom: 0.5rem;
+}
+.track-card p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.track-card--dark {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  border-color: var(--dark-bg);
+}
+.track-card--dark p { color: var(--dark-muted); }
+.track-card--dark:hover { border-color: var(--copper); }
+
+.track-link {
+  font-weight: 600;
+  color: var(--copper);
+}
+.track-link .arrow {
+  display: inline-block;
+  transition: transform var(--speed) var(--ease);
+}
+.track-card:hover .arrow { transform: translateX(4px); }
+
+/* ============================================================
+   Teenused
+   ============================================================ */
+
+.services { padding: 3.5rem 0; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 48rem) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid .service-card:nth-child(2) { --i: 1; }
+  .services-grid .service-card:nth-child(3) { --i: 2; }
+}
+
+.service-card {
+  padding: 1.8rem 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.service-card h3 {
+  font-size: 1.25rem;
+  margin: 1rem 0 0.6rem;
+}
+.service-card p { color: var(--muted); font-size: 0.98rem; }
+
+.service-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  stroke: var(--copper);
+  stroke-width: 2.4;
+  fill: none;
+  stroke-linecap: square;
+}
+.service-icon .fill-dot { fill: var(--copper); stroke: none; }
+
+/* ============================================================
+   Tehtud tööd — placeholder'id paberitoonis, vase piirjoonega
+   ============================================================ */
+
+.works { padding: 3.5rem 0; }
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 34rem) {
+  .works-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 60rem) {
+  .works-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.work-card figcaption {
+  padding-top: 0.7rem;
+  font-size: 0.95rem;
+}
+.work-card figcaption strong {
+  display: block;
+  font-family: var(--font-slab);
+  font-size: 1.08rem;
+}
+.work-card figcaption span { color: var(--muted); }
+
+.work-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--copper);
+  border-radius: 6px;
+  background:
+    repeating-linear-gradient(-45deg,
+      transparent 0 14px,
+      rgba(185, 106, 36, 0.05) 14px 15px),
+    var(--paper-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  overflow: hidden;
+}
+.work-photo .ph-bolt {
+  width: 2.4rem;
+  height: 2.4rem;
+  opacity: 0.7;
+}
+.ph-bolt path {
+  fill: none;
+  stroke: var(--copper);
+  stroke-width: 7;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+.ph-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================================
+   Miks Ampri
+   ============================================================ */
+
+.about { padding: 3.5rem 0 4.5rem; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 48rem) {
+  .about-grid { grid-template-columns: 2fr 3fr; align-items: start; }
+}
+
+.about-photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  max-width: 22rem;
+  border: 1px solid var(--copper);
+  border-radius: 6px;
+  background:
+    repeating-linear-gradient(-45deg,
+      transparent 0 14px,
+      rgba(185, 106, 36, 0.05) 14px 15px),
+    var(--paper-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.about-photo .ph-bolt { width: 3rem; height: 3rem; opacity: 0.7; }
+
+.about-copy p { margin-bottom: 1rem; max-width: 55ch; }
+
+.about-quote {
+  font-family: var(--font-slab);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--ink);
+  border-left: 3px solid var(--copper);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+  margin-top: 2rem;
+}
+.stat { display: flex; flex-direction: column; }
+.stat-number {
+  font-family: var(--font-slab);
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--copper);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   Üleminekud heledast tumedasse — "nagu astuks teise ruumi"
+   ============================================================ */
+
+.to-dark {
+  height: 9rem;
+  background: linear-gradient(to bottom, var(--paper), var(--dark-bg));
+}
+.to-light {
+  height: 9rem;
+  background: linear-gradient(to bottom, var(--dark-bg), var(--paper));
+}
+
+/* ============================================================
+   Tume B2B plokk
+   ============================================================ */
+
+.b2b {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  padding: 2.5rem 0 4.5rem;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+@media (min-width: 48rem) {
+  .facts-grid { grid-template-columns: 1fr 1fr; }
+  .facts-grid .fact:nth-child(2) { --i: 1; }
+  .facts-grid .fact:nth-child(3) { --i: 2; }
+  .facts-grid .fact:nth-child(4) { --i: 3; }
+}
+
+.fact {
+  border: 1px solid var(--dark-line);
+  border-radius: 8px;
+  padding: 1.5rem 1.4rem;
+}
+.fact h3 {
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--copper-hover);
+  margin-bottom: 0.6rem;
+}
+.fact p { color: var(--dark-text); font-size: 0.98rem; }
+.fact-big {
+  font-family: var(--font-slab);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.fact-note {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--dark-muted) !important;
+}
+
+.refs-title {
+  font-size: 1.3rem;
+  color: var(--dark-text);
+  margin-bottom: 1.2rem;
+}
+.refs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 48rem) {
+  .refs-grid { grid-template-columns: 1fr 1fr; }
+}
+.ref {
+  border-left: 3px solid var(--copper);
+  padding-left: 1.1rem;
+}
+.ref p {
+  font-family: var(--font-slab);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.ref cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--dark-muted);
+}
+
+.b2b-cta {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+.b2b-direct {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   Hinnapäringu vorm
+   ============================================================ */
+
+.inquiry { padding: 2.5rem 0 5rem; }
+
+.inquiry-inner { max-width: 34rem; }
+
+.inquiry-form { margin-top: 0.5rem; }
+
+.field { margin-bottom: 1.2rem; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: #FDFAF5;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.7rem 0.85rem;
+  transition: border-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--copper);
+  box-shadow: 0 0 0 3px rgba(185, 106, 36, 0.15);
+}
+.field textarea { resize: vertical; }
+
+.form-promise {
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.form-success {
+  margin-top: 0.8rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--copper);
+}
+
+/* ============================================================
+   Jalus
+   ============================================================ */
+
+.site-footer {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  padding: 3.5rem 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--dark-line);
+}
+@media (min-width: 48rem) {
+  .footer-grid { grid-template-columns: auto 1fr auto; align-items: start; gap: 3rem; }
+}
+
+.footer-name {
+  font-family: var(--font-slab);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.footer-info p { font-size: 0.95rem; color: var(--dark-muted); }
+.footer-info .footer-name { color: var(--dark-text); }
+.footer-note { font-size: 0.8rem; }
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+.footer-contact a { width: fit-content; }
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--dark-muted);
+}
+
+/* ============================================================
+   Reduced motion — kõik liikumine maha
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .section-title::after { transform: scaleX(1); }
+}
